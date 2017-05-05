@@ -1,0 +1,8 @@
+<div class="col-md-12 align-button">
+  <input class="btn btn-primary"
+    type="{{ inputSubmit.type }}"
+    name="{{ inputSubmit.name }}"
+    [(ngModel)]="inputSubmit.value"
+    (click)="onSaveSubmit()"
+    [disabled]= "inputSubmit.disable">
+</div>

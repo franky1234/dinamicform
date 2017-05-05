@@ -1,0 +1,10 @@
+<div [ngSwitch]="customInput.typeForm">
+  <app-input-field *ngSwitchCase="'field'" [inputField]="customInput"></app-input-field>
+  <app-input-field-check *ngSwitchCase="'field-check'" [inputFieldCheck]="customInput"></app-input-field-check>
+  <app-input-field-submit *ngSwitchCase="'field-button'"
+    [inputSubmit]="customInput"
+    (sendSaveData)="sendEventToForm()">
+    </app-input-field-submit>
+  <app-input-text-area *ngSwitchCase="'field-text-area'" [inputTextArea]="customInput"></app-input-text-area>
+  <app-input-select *ngSwitchCase="'field-select'" [inputSelectOption]="customInput"></app-input-select>
+</div>  

@@ -1,0 +1,17 @@
+.box-json > label{
+  display: block;
+}
+
+label {
+  text-align: center;
+}
+
+.area-select-options {
+  margin-bottom: 25px;
+}
+
+.select-options {
+  border-radius: 5px;
+  height: 30px;
+  width: calc(100% - 70px);
+}

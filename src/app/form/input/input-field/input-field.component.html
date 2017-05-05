@@ -1,0 +1,9 @@
+<label for="" class="control-label col-md-2">{{ inputField.label }}</label>
+<div class="col-md-10">
+  <input 
+    type="{{ inputField.type }}"
+    name="{{ inputField.name }}"
+    [(ngModel)]= "inputField.value"
+    [required]= "inputField.required"
+    [disabled]= "inputField.disable">
+</div>

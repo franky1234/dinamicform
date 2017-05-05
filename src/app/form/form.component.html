@@ -1,0 +1,70 @@
+  <div class="col-md-12">
+    <div class="col-md-4 panel panel-default">
+      <h4> Select the Input, and fill the JSON value </h4>
+      <div class="area-select-options">
+        <select [(ngModel)]="none" (ngModelChange)="selectionChanged($event)" class= "select-options">
+          <option value="none"> Select a option </option>
+          <option *ngFor="let option  of arrayInputOptions" name="option.label" [ngValue]="option">
+            {{option.label}}
+            </option>
+        </select>
+      </div>
+      <div class="box-json">
+        <textarea rows="17" cols="50" [(ngModel)] = "textJson" >
+        </textarea>
+      </div>
+      <button (click)="addInputElement()" class="btn btn-primary">Add input</button>
+    </div>
+    <div class="col-md-4">
+      <h4>Custom Form</h4>
+      <form class="form-horizontal">
+        <div *ngFor="let input of listInputs">
+          <app-input [customInput]= "input" class="form-group" (actualContentForm)="recieveInfo($event)"></app-input>
+        </div>
+
+      </form>
+    </div>
+    <div class="col-md-4 panel panel-default"></div>
+    <h4>Output Save Form</h4>
+    <div *ngIf="'showResult !== null'">
+      <div *ngFor="let result of showResults">
+        <div [ngSwitch]="result.typeForm">
+          <div class="card" *ngSwitchCase="'field'">
+            <div class="card-block">
+              <label>Input: </label> {{ result.type }}
+              <label>Value: </label> {{ result.value }}
+            </div>
+          </div>
+          <div class="card" *ngSwitchCase="'field-check'">
+            <div class="card-block">
+              <label>Input: </label> {{ result.type }}
+              <label>Value: </label> {{ result.value }}
+              <label>Checked: </label> {{ result.checked }}
+            </div>
+          </div>
+          <div class="card" *ngSwitchCase="'field-button'">
+            <div class="card-block">
+              <label>Input: </label> {{ result.type }}
+              <label>Value: </label> {{ result.value }}
+            </div>
+          </div>
+          <div class="card" *ngSwitchCase="'field-text-area'">
+            <div class="card-block">
+              <label>Input: </label> textarea
+              <label>Value: </label> {{ result.content }}
+            </div>
+          </div>
+          <div class="card" *ngSwitchCase="'field-select'">
+            <div class="card-block">
+              <label>Input: </label> select
+              <label>Value: </label> 
+              <span class="show-font-json">{{ result.content | json }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="show-font-json">
+{{ textJson }}
+</div>

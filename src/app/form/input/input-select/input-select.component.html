@@ -1,0 +1,11 @@
+<label for="" class="control-label col-md-2">{{ inputSelectOption.label }}</label>
+<div class="col-md-10">
+  <select [(ngModel)]="inputSelectOption.content" (ngModelChange)="selectionChanged($event)">
+    <option value="none"> Select a option </option>
+    <option *ngFor="let option  of inputSelectOption.options" 
+      name="option.name"
+      [ngValue]="option">
+      {{option.name}}
+      </option>
+  </select>
+</div>
